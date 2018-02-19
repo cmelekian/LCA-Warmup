@@ -6,8 +6,7 @@ import org.jgrapht.*;
 import java.util.*;
 import java.io.*;
 
-public class FindRecentAncestors
-{
+public class FindRecentAncestors {
     private FindRecentAncestors() {
     }
     
