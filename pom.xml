@@ -3,25 +3,42 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.melekian</groupId>
-  <artifactId>lca-warmup</artifactId>
+  <artifactId>lca</artifactId>
   <version>1</version>
   <packaging>jar</packaging>
 
-  <name>lca-warmup</name>
-  <url>http://maven.apache.org</url>
+  <name>lca</name>
   <build>
     <plugins>
       <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+		<plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <mainClass>net.melekian.lca_warmup.FindRecentAncestors</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>net.melekian.lca.FindRecentAncestors</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

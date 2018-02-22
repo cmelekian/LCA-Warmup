@@ -1,8 +1,13 @@
-package net.melekian.lca_warmup;
-import org.jgrapht.graph.*;
+package net.melekian.lca;
+import org.jgrapht.Graph;
+import org.jgrapht.graph.SimpleDirectedGraph;
+import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.alg.NaiveLcaFinder;
-import org.jgrapht.io.*;
-import org.jgrapht.*;
+import org.jgrapht.io.DOTImporter;
+import org.jgrapht.io.ImportException;
+import org.jgrapht.io.VertexProvider;
+import org.jgrapht.io.EdgeProvider;
+import org.jgrapht.io.buildVertex;
 import java.util.*;
 import java.io.*;
 
