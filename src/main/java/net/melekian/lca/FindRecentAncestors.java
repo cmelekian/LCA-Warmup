@@ -61,8 +61,8 @@ public class FindRecentAncestors {
     	familyTree.removeAllEdges(removals);
     	
     	//If the graph still contains cycles at this point we can't do anything to fix it
-    	CycleDetector<String, DefaultEdge> C = new CycleDetector<>(familyTree);
-    	if (C.detectCycles()) {
+    	CycleDetector<String, DefaultEdge> cycleDetector = new CycleDetector<>(familyTree);
+    	if (cycleDetector.detectCycles()) {
     		System.out.println("The graph contains a cycle.");
     		return null;
     	}
